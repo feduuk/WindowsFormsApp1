@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
             kernel[0, 0] = 0;
             kernel[0, 1] = -1;
             kernel[0, 2] = 0;
-             
+              
             kernel[1, 0] = -1; 
             kernel[1, 1] = 5;
             kernel[1, 2] = -1;

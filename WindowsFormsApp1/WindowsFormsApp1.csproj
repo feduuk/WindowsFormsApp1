@@ -67,8 +67,14 @@
     <Compile Include="MatrixFilter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RotateFilter.cs" />
     <Compile Include="SepiaFilter.cs" />
     <Compile Include="SharpnessFilter.cs" />
+    <Compile Include="ShiftFilter.cs" />
+    <Compile Include="SobelFilter.cs" />
+    <Compile Include="SobelXFilter.cs" />
+    <Compile Include="SobelYFilter.cs" />
+    <Compile Include="TisnenieFilter.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

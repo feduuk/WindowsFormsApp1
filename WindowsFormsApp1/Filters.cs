@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
                 return max;
             return value;
         }
-        public Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        public virtual Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
             Bitmap resultImage = new Bitmap(sourceImage.Width, sourceImage.Height);
             for(int i = 0; i < sourceImage.Width; i++)

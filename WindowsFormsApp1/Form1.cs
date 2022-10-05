@@ -125,5 +125,47 @@ namespace WindowsFormsApp1
             Filters filter = new SharpnessFilter();
             backgroundWorker1.RunWorkerAsync(filter);
         }
+
+        private void собельПоОсиYToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SobelYFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+
+        }
+
+        private void собельПоОсиXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter = new SobelXFilter();
+            backgroundWorker1.RunWorkerAsync(filter);
+        }
+
+        private void тиснениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter1 = new TisnenieFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+
+        }
+
+        
+
+        private void сдвигToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter1 = new ShiftFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
+
+        private void вращениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Form2 form = new Form2())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    int k = Int32.Parse(form.txt);
+                    Filters filter = new RotateFilter(k);
+                    backgroundWorker1.RunWorkerAsync(filter);
+                }
+            }
+
+        }
     }
 }
