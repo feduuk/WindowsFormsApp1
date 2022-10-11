@@ -167,5 +167,30 @@ namespace WindowsFormsApp1
             }
 
         }
+
+        private void стеклоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Filters filter1 = new GlassFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
+
+        private void резкостьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Filters filter1 = new Sharpness2Filter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
+
+        private void размытиеДвиженияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (Form2 form = new Form2())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    int k = Int32.Parse(form.txt);
+                    Filters filter = new MotionBlurFilter(k);
+                    backgroundWorker1.RunWorkerAsync(filter);
+                }
+            }
+        }
     }
 }

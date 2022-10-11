@@ -62,13 +62,16 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="GaussianFilter.cs" />
+    <Compile Include="GlassFilter.cs" />
     <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="InvertFilter.cs" />
     <Compile Include="MatrixFilter.cs" />
+    <Compile Include="MotionBlurFilter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RotateFilter.cs" />
     <Compile Include="SepiaFilter.cs" />
+    <Compile Include="Sharpness2Filter.cs" />
     <Compile Include="SharpnessFilter.cs" />
     <Compile Include="ShiftFilter.cs" />
     <Compile Include="SobelFilter.cs" />
