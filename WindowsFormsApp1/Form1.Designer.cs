@@ -50,11 +50,13 @@
             this.вращениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.стеклоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.резкостьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.размытиеДвиженияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.размытиеДвиженияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.матМорфологияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dilationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,7 +102,8 @@
             this.фильтрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.точечныеToolStripMenuItem,
             this.матричныеToolStripMenuItem,
-            this.комбоToolStripMenuItem});
+            this.комбоToolStripMenuItem,
+            this.матМорфологияToolStripMenuItem});
             this.фильтрыToolStripMenuItem.Name = "фильтрыToolStripMenuItem";
             this.фильтрыToolStripMenuItem.Size = new System.Drawing.Size(85, 24);
             this.фильтрыToolStripMenuItem.Text = "Фильтры";
@@ -239,6 +242,13 @@
             this.резкостьToolStripMenuItem1.Text = "Резкость";
             this.резкостьToolStripMenuItem1.Click += new System.EventHandler(this.резкостьToolStripMenuItem1_Click);
             // 
+            // размытиеДвиженияToolStripMenuItem
+            // 
+            this.размытиеДвиженияToolStripMenuItem.Name = "размытиеДвиженияToolStripMenuItem";
+            this.размытиеДвиженияToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
+            this.размытиеДвиженияToolStripMenuItem.Text = "Размытие движения";
+            this.размытиеДвиженияToolStripMenuItem.Click += new System.EventHandler(this.размытиеДвиженияToolStripMenuItem_Click);
+            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
@@ -274,12 +284,20 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // размытиеДвиженияToolStripMenuItem
+            // матМорфологияToolStripMenuItem
             // 
-            this.размытиеДвиженияToolStripMenuItem.Name = "размытиеДвиженияToolStripMenuItem";
-            this.размытиеДвиженияToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.размытиеДвиженияToolStripMenuItem.Text = "Размытие движения";
-            this.размытиеДвиженияToolStripMenuItem.Click += new System.EventHandler(this.размытиеДвиженияToolStripMenuItem_Click);
+            this.матМорфологияToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dilationToolStripMenuItem});
+            this.матМорфологияToolStripMenuItem.Name = "матМорфологияToolStripMenuItem";
+            this.матМорфологияToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.матМорфологияToolStripMenuItem.Text = "Мат морфология";
+            // 
+            // dilationToolStripMenuItem
+            // 
+            this.dilationToolStripMenuItem.Name = "dilationToolStripMenuItem";
+            this.dilationToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.dilationToolStripMenuItem.Text = "Dilation";
+            this.dilationToolStripMenuItem.Click += new System.EventHandler(this.dilationToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -331,6 +349,8 @@
         private System.Windows.Forms.ToolStripMenuItem стеклоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem резкостьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem размытиеДвиженияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem матМорфологияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dilationToolStripMenuItem;
     }
 }
 

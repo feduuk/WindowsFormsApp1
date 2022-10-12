@@ -192,5 +192,11 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MathMorphFilter filter1 = new MathMorphFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
     }
 }

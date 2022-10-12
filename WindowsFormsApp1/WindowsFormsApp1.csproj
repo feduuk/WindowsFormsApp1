@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BlurFilter.cs" />
     <Compile Include="BrightnessFilter.cs" />
+    <Compile Include="DilationFilter.cs" />
     <Compile Include="Filters.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -65,6 +66,7 @@
     <Compile Include="GlassFilter.cs" />
     <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="InvertFilter.cs" />
+    <Compile Include="MathMorphFilter.cs" />
     <Compile Include="MatrixFilter.cs" />
     <Compile Include="MotionBlurFilter.cs" />
     <Compile Include="Program.cs" />
