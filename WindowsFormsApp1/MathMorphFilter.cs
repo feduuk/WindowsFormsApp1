@@ -34,8 +34,8 @@ namespace WindowsFormsApp1
         
         public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
-            int MH = kernel.GetLength(0) / 2;
-            int MW = kernel.GetLength(1) / 2;
+            int MH = kernel.GetLength(0);
+            int MW = kernel.GetLength(1);
             int Height = (int)sourceImage.Height;
             int Width = (int)sourceImage.Width;
             Bitmap resultImage = new Bitmap(Width, Height);
@@ -53,15 +53,15 @@ namespace WindowsFormsApp1
                         {
 
                             Color source = sourceImage.GetPixel(x + i, y + j);
-                            if ((kernel[i, j] != 0) && (source.R > max.R))
+                            if ((kernel[i+MW/2, j+MH/2] != 0) && (source.R > max.R))
                             {
                                 max = Color.FromArgb(source.R, max.G, max.B);
                             }
-                            if ((kernel[i, j] != 0) && (source.G > max.G))
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.G > max.G))
                             {
                                 max = Color.FromArgb(max.R, source.G, max.B);
                             }
-                            if ((kernel[i, j] != 0) && (source.B > max.B))
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.B > max.B))
                             {
                                 max = Color.FromArgb(max.R, max.G, source.B);
                             }
