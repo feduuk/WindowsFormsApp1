@@ -198,5 +198,13 @@ namespace WindowsFormsApp1
             MathMorphFilter filter1 = new MathMorphFilter();
             backgroundWorker1.RunWorkerAsync(filter1);
         }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            erosion filter1 = new erosion();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
+
+        
     }
 }
