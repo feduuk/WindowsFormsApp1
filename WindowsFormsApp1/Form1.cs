@@ -205,6 +205,16 @@ namespace WindowsFormsApp1
             backgroundWorker1.RunWorkerAsync(filter1);
         }
 
-        
+        private void openingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Opening filter1 = new Opening();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
+
+        private void closingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Closing filter1 = new Closing();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
     }
 }

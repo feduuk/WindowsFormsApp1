@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Opening : Filters
+    class Closing : Filters
     {
 
         protected float[,] kernel = null;
-        public Opening()
+        public Closing()
         {
             int MH = 3;
             int MW = 3;
@@ -38,6 +38,49 @@ namespace WindowsFormsApp1
             int Height = (int)sourceImage.Height;
             int Width = (int)sourceImage.Width;
             Bitmap resultImage = new Bitmap(Width, Height);
+            for (int y = MH / 2; y < Height - MH / 2; y++)
+            {
+                worker.ReportProgress((int)((float)y / (Height - MH / 2) * 100));
+                if (worker.CancellationPending)
+                    return null;
+                for (int x = MW / 2; x < Width - MW / 2; x++)
+                {
+                    Color max = Color.FromArgb(0, 0, 0);
+                    for (int j = -MH / 2; j <= MH / 2; j++)
+                    {
+                        for (int i = -MW / 2; i <= MW / 2; i++)
+                        {
+
+                            Color source = sourceImage.GetPixel(x + i, y + j);
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.R > max.R))
+                            {
+                                max = Color.FromArgb(source.R, max.G, max.B);
+                            }
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.G > max.G))
+                            {
+                                max = Color.FromArgb(max.R, source.G, max.B);
+                            }
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.B > max.B))
+                            {
+                                max = Color.FromArgb(max.R, max.G, source.B);
+                            }
+                        }
+                    }
+
+                    resultImage.SetPixel(x, y, max);
+                }
+
+            }
+            
+
+            sourceImage = resultImage;
+            MH = kernel.GetLength(0);
+            MW = kernel.GetLength(1);
+            Height = (int)sourceImage.Height;
+            Width = (int)sourceImage.Width;
+            resultImage = new Bitmap(Width, Height);
+
+
             for (int y = MH / 2; y < Height - MH / 2; y++)
             {
                 worker.ReportProgress((int)((float)y / (Height - MH / 2) * 100));
@@ -72,48 +115,6 @@ namespace WindowsFormsApp1
                 }
 
             }
-
-            sourceImage = resultImage;
-            MH = kernel.GetLength(0);
-            MW = kernel.GetLength(1);
-            Height = (int)sourceImage.Height;
-            Width = (int)sourceImage.Width;
-            resultImage = new Bitmap(Width, Height);
-
-            for (int y = MH / 2; y < Height - MH / 2; y++)
-            {
-                worker.ReportProgress((int)((float)y / (Height - MH / 2) * 100));
-                if (worker.CancellationPending)
-                    return null;
-                for (int x = MW / 2; x < Width - MW / 2; x++)
-                {
-                    Color max = Color.FromArgb(0, 0, 0);
-                    for (int j = -MH / 2; j <= MH / 2; j++)
-                    {
-                        for (int i = -MW / 2; i <= MW / 2; i++)
-                        {
-
-                            Color source = sourceImage.GetPixel(x + i, y + j);
-                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.R > max.R))
-                            {
-                                max = Color.FromArgb(source.R, max.G, max.B);
-                            }
-                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.G > max.G))
-                            {
-                                max = Color.FromArgb(max.R, source.G, max.B);
-                            }
-                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.B > max.B))
-                            {
-                                max = Color.FromArgb(max.R, max.G, source.B);
-                            }
-                        }
-                    }
-
-                    resultImage.SetPixel(x, y, max);
-                }
-
-            }
-
 
 
             return resultImage;

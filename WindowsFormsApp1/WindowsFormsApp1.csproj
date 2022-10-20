@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BlurFilter.cs" />
     <Compile Include="BrightnessFilter.cs" />
+    <Compile Include="Closing.cs" />
     <Compile Include="Erosion.cs" />
     <Compile Include="Filters.cs" />
     <Compile Include="Form1.cs">
