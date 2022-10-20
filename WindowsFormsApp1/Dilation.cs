@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class MathMorphFilter : Filters
+    class Dilation : Filters
     {
 
         protected float[,] kernel = null;
-        public MathMorphFilter()
+        public Dilation()
         {
             int MH = 3;
             int MW = 3;

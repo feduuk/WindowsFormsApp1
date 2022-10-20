@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Erosion : Filters
+    class Opening : Filters
     {
 
         protected float[,] kernel = null;
-        public Erosion()
+        public Opening()
         {
             int MH = 3;
             int MW = 3;
@@ -69,7 +68,7 @@ namespace WindowsFormsApp1
                     }
 
                     resultImage.SetPixel(x, y, min);
-                    
+
                 }
 
             }
@@ -78,7 +77,7 @@ namespace WindowsFormsApp1
             return resultImage;
 
 
-            
+
         }
 
         protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)

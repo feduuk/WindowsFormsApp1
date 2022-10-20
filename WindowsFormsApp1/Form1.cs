@@ -195,13 +195,13 @@ namespace WindowsFormsApp1
 
         private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MathMorphFilter filter1 = new MathMorphFilter();
+            Dilation filter1 = new Dilation();
             backgroundWorker1.RunWorkerAsync(filter1);
         }
 
         private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            erosion filter1 = new erosion();
+            Erosion filter1 = new Erosion();
             backgroundWorker1.RunWorkerAsync(filter1);
         }
 
