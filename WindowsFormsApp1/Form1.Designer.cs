@@ -60,6 +60,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.openingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topHatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -258,7 +259,8 @@
             this.dilationToolStripMenuItem,
             this.erosionToolStripMenuItem,
             this.openingToolStripMenuItem,
-            this.closingToolStripMenuItem});
+            this.closingToolStripMenuItem,
+            this.topHatToolStripMenuItem});
             this.матМорфологияToolStripMenuItem.Name = "матМорфологияToolStripMenuItem";
             this.матМорфологияToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.матМорфологияToolStripMenuItem.Text = "Мат морфология";
@@ -326,6 +328,13 @@
             this.closingToolStripMenuItem.Text = "Closing";
             this.closingToolStripMenuItem.Click += new System.EventHandler(this.closingToolStripMenuItem_Click);
             // 
+            // topHatToolStripMenuItem
+            // 
+            this.topHatToolStripMenuItem.Name = "topHatToolStripMenuItem";
+            this.topHatToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.topHatToolStripMenuItem.Text = "TopHat";
+            this.topHatToolStripMenuItem.Click += new System.EventHandler(this.topHatToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -381,6 +390,7 @@
         private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topHatToolStripMenuItem;
     }
 }
 

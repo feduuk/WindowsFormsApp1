@@ -216,5 +216,11 @@ namespace WindowsFormsApp1
             Closing filter1 = new Closing();
             backgroundWorker1.RunWorkerAsync(filter1);
         }
+
+        private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TopHat filter1 = new TopHat();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
     }
 }

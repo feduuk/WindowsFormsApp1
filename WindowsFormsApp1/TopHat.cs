@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace WindowsFormsApp1
+{
+    //input image - opening
+    class TopHat : Filters
+    {
+        
+        protected float[,] kernel = null;
+        public TopHat()
+        {
+            int MH = 3;
+            int MW = 3;
+            kernel = new float[MH, MW];
+
+            kernel[0, 0] = 0;
+            kernel[0, 1] = 1;
+            kernel[0, 2] = 0;
+
+            kernel[1, 0] = 1;
+            kernel[1, 1] = 1;
+            kernel[1, 2] = 1;
+
+            kernel[2, 0] = 0;
+            kernel[2, 1] = 1;
+            kernel[2, 2] = 0;
+        }
+
+        public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
+        {
+            int MH = kernel.GetLength(0);
+            int MW = kernel.GetLength(1);
+            int Height = (int)sourceImage.Height;
+            int Width = (int)sourceImage.Width;
+            Bitmap resultImage = new Bitmap(Width, Height);
+            Bitmap originSourceImage = sourceImage;
+            Bitmap trueResultImage = new Bitmap(Width, Height);
+            for (int y = MH / 2; y < Height - MH / 2; y++)
+            {
+                worker.ReportProgress((int)((float)y / (Height - MH / 2) * 100));
+                if (worker.CancellationPending)
+                    return null;
+                for (int x = MW / 2; x < Width - MW / 2; x++)
+                {
+                    Color min = Color.FromArgb(255, 255, 255);
+                    for (int j = -MH / 2; j <= MH / 2; j++)
+                    {
+                        for (int i = -MW / 2; i <= MW / 2; i++)
+                        {
+
+                            Color source = sourceImage.GetPixel(x + i, y + j);
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.R < min.R))
+                            {
+                                min = Color.FromArgb(source.R, min.G, min.B);
+                            }
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.G < min.G))
+                            {
+                                min = Color.FromArgb(min.R, source.G, min.B);
+                            }
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.B < min.B))
+                            {
+                                min = Color.FromArgb(min.R, min.G, source.B);
+                            }
+                        }
+                    }
+
+                    resultImage.SetPixel(x, y, min);
+
+                }
+
+            }
+
+            sourceImage = resultImage;
+            MH = kernel.GetLength(0);
+            MW = kernel.GetLength(1);
+            Height = (int)sourceImage.Height;
+            Width = (int)sourceImage.Width;
+            resultImage = new Bitmap(Width, Height);
+
+            for (int y = MH / 2; y < Height - MH / 2; y++)
+            {
+                worker.ReportProgress((int)((float)y / (Height - MH / 2) * 100));
+                if (worker.CancellationPending)
+                    return null;
+                for (int x = MW / 2; x < Width - MW / 2; x++)
+                {
+                    Color max = Color.FromArgb(0, 0, 0);
+                    for (int j = -MH / 2; j <= MH / 2; j++)
+                    {
+                        for (int i = -MW / 2; i <= MW / 2; i++)
+                        {
+
+                            Color source = sourceImage.GetPixel(x + i, y + j);
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.R > max.R))
+                            {
+                                max = Color.FromArgb(source.R, max.G, max.B);
+                            }
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.G > max.G))
+                            {
+                                max = Color.FromArgb(max.R, source.G, max.B);
+                            }
+                            if ((kernel[i + MW / 2, j + MH / 2] != 0) && (source.B > max.B))
+                            {
+                                max = Color.FromArgb(max.R, max.G, source.B);
+                            }
+                        }
+                    }
+
+                    resultImage.SetPixel(x, y, max);
+                }
+
+            }
+
+
+
+
+
+
+
+
+            for (int y = MH / 2; y < Height - MH / 2; y++)
+            {
+                worker.ReportProgress((int)((float)y / (Height - MH / 2) * 100));
+                if (worker.CancellationPending)
+                    return null;
+                for (int x = MW / 2; x < Width - MW / 2; x++)
+                {
+                    Color originSourceColor = originSourceImage.GetPixel(x, y);
+                    Color resultColor = sourceImage.GetPixel(x, y);
+                    Color trueResultColor = Color.FromArgb(Clamp(originSourceColor.R - resultColor.R, 0, 255), Clamp(originSourceColor.G - resultColor.G, 0, 255), Clamp(originSourceColor.B - resultColor.B, 0, 255));
+                    trueResultImage.SetPixel(x, y, trueResultColor);
+                }
+
+            }
+
+
+
+
+            return trueResultImage;
+
+
+
+        }
+
+        protected override Color calculateNewPixelColor(Bitmap sourceImage, int x, int y)
+        {
+
+            int radiusX = kernel.GetLength(0) / 2;
+            int radiusY = kernel.GetLength(1) / 2;
+            float resultR = 0;
+            float resultG = 0;
+            float resultB = 0;
+            for (int l = -radiusY; l <= radiusY; l++)
+                for (int k = -radiusX; k <= radiusX; k++)
+                {
+                    int idX = Clamp(x + k, 0, sourceImage.Width - 1);
+                    int idY = Clamp(y + l, 0, sourceImage.Height - 1);
+                    Color neighborColor = sourceImage.GetPixel(idX, idY);
+                    resultR += neighborColor.R * kernel[k + radiusX, l + radiusY];
+                    resultG += neighborColor.G * kernel[k + radiusX, l + radiusY];
+                    resultB += neighborColor.B * kernel[k + radiusX, l + radiusY];
+                }
+            return Color.FromArgb(
+                Clamp((int)resultR, 0, 255),
+                Clamp((int)resultG, 0, 255),
+                Clamp((int)resultB, 0, 255)
+                );
+        }
+    }
+}

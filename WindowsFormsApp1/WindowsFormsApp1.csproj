@@ -82,6 +82,7 @@
     <Compile Include="SobelXFilter.cs" />
     <Compile Include="SobelYFilter.cs" />
     <Compile Include="TisnenieFilter.cs" />
+    <Compile Include="TopHat.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
