@@ -68,7 +68,9 @@
     <Compile Include="GrayScaleFilter.cs" />
     <Compile Include="InvertFilter.cs" />
     <Compile Include="Dilation.cs" />
+    <Compile Include="LinearFilter.cs" />
     <Compile Include="MatrixFilter.cs" />
+    <Compile Include="MedianFilter.cs" />
     <Compile Include="MotionBlurFilter.cs" />
     <Compile Include="Opening.cs" />
     <Compile Include="Program.cs" />

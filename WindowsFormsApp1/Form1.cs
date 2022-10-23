@@ -222,5 +222,17 @@ namespace WindowsFormsApp1
             TopHat filter1 = new TopHat();
             backgroundWorker1.RunWorkerAsync(filter1);
         }
+
+        private void медианныйФильтрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MedianFilter filter1 = new MedianFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
+
+        private void линейноеРастяжениеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LinearFilter filter1 = new LinearFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
     }
 }
