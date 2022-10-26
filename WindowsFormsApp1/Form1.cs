@@ -234,5 +234,11 @@ namespace WindowsFormsApp1
             LinearFilter filter1 = new LinearFilter();
             backgroundWorker1.RunWorkerAsync(filter1);
         }
+
+        private void серыйМирToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GreyWorldFilter filter1 = new GreyWorldFilter();
+            backgroundWorker1.RunWorkerAsync(filter1);
+        }
     }
 }

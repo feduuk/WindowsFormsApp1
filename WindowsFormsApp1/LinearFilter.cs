@@ -23,20 +23,20 @@ namespace WindowsFormsApp1
 
         public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
         {
-            colorRMax = 0;
-            colorGMax = 0;
-            colorBMax = 0;
-            colorRMin = 255;
-            colorGMin = 255;
-            colorBMin = 255;
+            colorRMax = sourceImage.GetPixel(0, 0).R;
+            colorGMax = sourceImage.GetPixel(0, 0).G;
+            colorBMax = sourceImage.GetPixel(0, 0).B;
+            colorRMin = sourceImage.GetPixel(0, 0).R;
+            colorGMin = sourceImage.GetPixel(0, 0).G;
+            colorBMin = sourceImage.GetPixel(0, 0).B;
             for (int i = 0; i < sourceImage.Width; i++)
             {
                 for (int j = 0; j < sourceImage.Height; j++)
                 {
                     Color color = sourceImage.GetPixel(i, j);
                     if (colorRMax < color.R) colorRMax = color.R;
-                    if (colorGMax < color.G) colorRMax = color.G;
-                    if (colorBMax < color.B) colorRMax = color.B;
+                    if (colorGMax < color.G) colorGMax = color.G;
+                    if (colorBMax < color.B) colorBMax = color.B;
 
                     if (colorRMin > color.R) colorRMin = color.R;
                     if (colorGMin > color.G) colorGMin = color.G;
@@ -65,31 +65,16 @@ namespace WindowsFormsApp1
 
 
             Color sourceColor = sourceImage.GetPixel(x, y);
-            byte a = (byte)(colorRMax - colorRMin);
-            if (a == 0) a = 1;
-            byte red = (byte)((sourceColor.R - colorRMin) * ((255 - 0) / a));
-            a = (byte)(colorGMax - colorGMin);
-            if (a == 0) a = 1;
-            byte green = (byte)((sourceColor.G - colorGMin) * ((255 - 0) / a));
-            a = (byte)(colorBMax - colorBMin);
-            if (a == 0) a = 1;
-            byte blue = (byte)((sourceColor.B - colorBMin) * ((255 - 0) / a));
 
-
-            //byte red = (byte)((sourceColor.R - colorRMin) * ((255 - 0) / (colorRMax - colorRMin)));
-            //byte green = (byte)((sourceColor.G - colorGMin) * ((255 - 0) / (colorGMax - colorGMin)));
-            //byte blue = (byte)((sourceColor.B - colorBMin) * ((255 - 0) / (colorBMax - colorBMin)));
-
-
-
-
+            byte red = (byte)((sourceColor.R - colorRMin) * ((255 - 0) / (byte)(colorRMax - colorRMin)));
+            
+            byte green = (byte)((sourceColor.G - colorGMin) * ((255 - 0) / (byte)(colorGMax - colorGMin)));
+            
+            byte blue = (byte)((sourceColor.B - colorBMin) * ((255 - 0) / (byte)(colorBMax - colorBMin)));
+            
             Color resultColor = Color.FromArgb(red, green, blue);
             return resultColor;
         }
-
-
-
-
 
     
     }
