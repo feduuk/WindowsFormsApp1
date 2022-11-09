@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -128,9 +129,9 @@ namespace WindowsFormsApp1
 
         private void собельПоОсиYToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Filters filter = new SobelYFilter();
+            
+            MatrixFilter filter = new SobelYFilter();
             backgroundWorker1.RunWorkerAsync(filter);
-
         }
 
         private void собельПоОсиXToolStripMenuItem_Click(object sender, EventArgs e)
@@ -195,32 +196,92 @@ namespace WindowsFormsApp1
 
         private void dilationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Dilation filter1 = new Dilation();
+            
+            int[,] kernel = null;
+            using (Form3 form = new Form3())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    
+                    kernel = form.kernel;
+                }
+            }
+            Dilation filter1 = new Dilation(kernel);
             backgroundWorker1.RunWorkerAsync(filter1);
         }
 
         private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Erosion filter1 = new Erosion();
+            int[,] kernel = null;
+            using (Form3 form = new Form3())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                    kernel = form.kernel;
+                }
+            }
+            Erosion filter1 = new Erosion(kernel);
             backgroundWorker1.RunWorkerAsync(filter1);
+
+
+            //Erosion filter1 = new Erosion();
+            //backgroundWorker1.RunWorkerAsync(filter1);
         }
 
         private void openingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Opening filter1 = new Opening();
+            int[,] kernel = null;
+            using (Form3 form = new Form3())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                    kernel = form.kernel;
+                }
+            }
+            Opening filter1 = new Opening(kernel);
             backgroundWorker1.RunWorkerAsync(filter1);
+
+
+            //Opening filter1 = new Opening();
+            //backgroundWorker1.RunWorkerAsync(filter1);
         }
 
         private void closingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Closing filter1 = new Closing();
+            int[,] kernel = null;
+            using (Form3 form = new Form3())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                    kernel = form.kernel;
+                }
+            }
+            Closing filter1 = new Closing(kernel);
             backgroundWorker1.RunWorkerAsync(filter1);
+
+            //Closing filter1 = new Closing();
+            //backgroundWorker1.RunWorkerAsync(filter1);
         }
 
         private void topHatToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TopHat filter1 = new TopHat();
+            int[,] kernel = null;
+            using (Form3 form = new Form3())
+            {
+                if (form.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+
+                    kernel = form.kernel;
+                }
+            }
+            TopHat filter1 = new TopHat(kernel);
             backgroundWorker1.RunWorkerAsync(filter1);
+
+            //TopHat filter1 = new TopHat();
+            //backgroundWorker1.RunWorkerAsync(filter1);
         }
 
         private void медианныйФильтрToolStripMenuItem_Click(object sender, EventArgs e)

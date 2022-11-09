@@ -12,24 +12,25 @@ namespace WindowsFormsApp1
     class Erosion : Filters
     {
 
-        protected float[,] kernel = null;
-        public Erosion()
+        protected int[,] kernel = null;
+        public Erosion(int[,] kernel)
         {
-            int MH = 3;
-            int MW = 3;
-            kernel = new float[MH, MW];
+            this.kernel = kernel;
+            //int MH = 3;
+            //int MW = 3;
+            //kernel = new float[MH, MW];
 
-            kernel[0, 0] = 0;
-            kernel[0, 1] = 1;
-            kernel[0, 2] = 0;
+            //kernel[0, 0] = 0;
+            //kernel[0, 1] = 1;
+            //kernel[0, 2] = 0;
 
-            kernel[1, 0] = 1;
-            kernel[1, 1] = 1;
-            kernel[1, 2] = 1;
+            //kernel[1, 0] = 1;
+            //kernel[1, 1] = 1;
+            //kernel[1, 2] = 1;
 
-            kernel[2, 0] = 0;
-            kernel[2, 1] = 1;
-            kernel[2, 2] = 0;
+            //kernel[2, 0] = 0;
+            //kernel[2, 1] = 1;
+            //kernel[2, 2] = 0;
         }
 
         public override Bitmap processImage(Bitmap sourceImage, BackgroundWorker worker)
