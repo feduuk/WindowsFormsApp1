@@ -46,7 +46,6 @@
             this.собельПоОсиXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.комбоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.тиснениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сдвигToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.стеклоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.резкостьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.размытиеДвиженияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,11 +57,11 @@
             this.topHatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.медианныйФильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.линейноеРастяжениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.серыйМирToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.серыйМирToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -207,7 +206,6 @@
             // 
             this.комбоToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.тиснениеToolStripMenuItem,
-            this.сдвигToolStripMenuItem,
             this.стеклоToolStripMenuItem,
             this.резкостьToolStripMenuItem1,
             this.размытиеДвиженияToolStripMenuItem});
@@ -221,13 +219,6 @@
             this.тиснениеToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
             this.тиснениеToolStripMenuItem.Text = "Тиснение";
             this.тиснениеToolStripMenuItem.Click += new System.EventHandler(this.тиснениеToolStripMenuItem_Click);
-            // 
-            // сдвигToolStripMenuItem
-            // 
-            this.сдвигToolStripMenuItem.Name = "сдвигToolStripMenuItem";
-            this.сдвигToolStripMenuItem.Size = new System.Drawing.Size(234, 26);
-            this.сдвигToolStripMenuItem.Text = "Сдвиг";
-            this.сдвигToolStripMenuItem.Click += new System.EventHandler(this.сдвигToolStripMenuItem_Click);
             // 
             // стеклоToolStripMenuItem
             // 
@@ -311,6 +302,13 @@
             this.линейноеРастяжениеToolStripMenuItem.Text = "Линейное растяжение";
             this.линейноеРастяжениеToolStripMenuItem.Click += new System.EventHandler(this.линейноеРастяжениеToolStripMenuItem_Click);
             // 
+            // серыйМирToolStripMenuItem
+            // 
+            this.серыйМирToolStripMenuItem.Name = "серыйМирToolStripMenuItem";
+            this.серыйМирToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
+            this.серыйМирToolStripMenuItem.Text = "Серый мир";
+            this.серыйМирToolStripMenuItem.Click += new System.EventHandler(this.серыйМирToolStripMenuItem_Click);
+            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
@@ -345,13 +343,6 @@
             this.button2.Text = "Оригинал";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // серыйМирToolStripMenuItem
-            // 
-            this.серыйМирToolStripMenuItem.Name = "серыйМирToolStripMenuItem";
-            this.серыйМирToolStripMenuItem.Size = new System.Drawing.Size(250, 26);
-            this.серыйМирToolStripMenuItem.Text = "Серый мир";
-            this.серыйМирToolStripMenuItem.Click += new System.EventHandler(this.серыйМирToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -398,7 +389,6 @@
         private System.Windows.Forms.ToolStripMenuItem собельПоОсиXToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem комбоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem тиснениеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сдвигToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem стеклоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem резкостьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem размытиеДвиженияToolStripMenuItem;

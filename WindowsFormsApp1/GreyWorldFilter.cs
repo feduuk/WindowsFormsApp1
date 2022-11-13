@@ -61,7 +61,7 @@ namespace WindowsFormsApp1
             G = sourceColor.G * avg / averageG;
             B = sourceColor.B * avg / averageB;
 
-            Color resultColor = Color.FromArgb(R, G, B);
+            Color resultColor = Color.FromArgb(Clamp(R, 0, 255), Clamp(G, 0, 255), Clamp(B, 0, 255));
             return resultColor;
         }
 
